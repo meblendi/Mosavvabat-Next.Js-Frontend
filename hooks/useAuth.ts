@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from 'react';
 import { isAuthenticated, removeAuthTokens } from '../lib/auth';
 import api from '../lib/axios';

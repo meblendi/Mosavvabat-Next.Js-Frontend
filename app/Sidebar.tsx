@@ -1,6 +1,8 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { 
   LayoutDashboard, 
   FileText, 
@@ -14,7 +16,7 @@ import {
 import { useAuth } from '../hooks/useAuth';
 
 const Sidebar: React.FC = () => {
-  const router = useRouter();
+  const pathname = usePathname();
   const { user } = useAuth();
 
   const menuItems = [
@@ -59,7 +61,7 @@ const Sidebar: React.FC = () => {
     },
   ];
 
-  const isActive = (href: string) => router.pathname === href;
+  const isActive = (href: string) => pathname === href;
 
   return (
     <aside className="w-64 bg-white shadow-lg border-l">
