@@ -3,7 +3,7 @@ import { useAuth } from '../hooks/useAuth';
 import { useApi } from '../hooks/useApi';
 import { Order } from '../types';
 import Layout from '../app/layout';
-import OrderCard from '../components/OrderCard';
+import OrderCard from '../app/OrderCard';
 
 const Dashboard: React.FC = () => {
   const { user } = useAuth();
