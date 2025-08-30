@@ -1,14 +1,7 @@
-import type { AppProps } from 'next/app';
-import { Toaster } from 'react-hot-toast';
-import "../styles/globals.css";
-
-function MyApp({ Component, pageProps }: AppProps) {
+export default function HomePage() {
   return (
-    <>
-      <Component {...pageProps} />
-      <Toaster position="top-center" />
-    </>
+    <div>
+      <h1>Welcome to Your App</h1>      
+    </div>
   );
 }
-
-export default MyApp;
