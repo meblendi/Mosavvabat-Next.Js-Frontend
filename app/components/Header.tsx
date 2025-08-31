@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../../hooks/useAuth';
 import { LogOut, User } from 'lucide-react';
 import Image from "next/image";
 

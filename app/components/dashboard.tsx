@@ -1,8 +1,8 @@
 import React from 'react';
-import { useAuth } from '../hooks/useAuth';
-import { useApi } from '../hooks/useApi';
-import { Order } from '../types';
-import Layout from './layout';
+import { useAuth } from '../../hooks/useAuth';
+import { useApi } from '../../hooks/useApi';
+import { Order } from '../../types';
+import Layout from '../layout';
 import OrderCard from './OrderCard';
 
 const Dashboard: React.FC = () => {

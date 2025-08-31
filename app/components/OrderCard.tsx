@@ -9,7 +9,7 @@ import {
   XCircle,
   FileText
 } from 'lucide-react';
-import { Order } from '../types';
+import { Order } from '../../types';
 import { format, formatDistanceToNow } from 'date-fns';
 import { faIR } from 'date-fns/locale';
 
