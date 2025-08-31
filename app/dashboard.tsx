@@ -2,12 +2,12 @@ import React from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { useApi } from '../hooks/useApi';
 import { Order } from '../types';
-import Layout from '../app/layout';
-import OrderCard from '../app/OrderCard';
+import Layout from './layout';
+import OrderCard from './OrderCard';
 
 const Dashboard: React.FC = () => {
   const { user } = useAuth();
-  const { data: orders, loading, error } = useApi<Order[]>('/mosavabat/orders/');
+  const { data: orders, loading, error } = useApi<Order[]>('/mosavvabat/orders/');
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;

@@ -1,14 +1,16 @@
 import React from "react";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
+import { Toaster } from "react-hot-toast";
+import "../styles/globals.css";
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+export default function RootLayout({ children }: LayoutProps) {
   return (
-    <html>
+    <html lang="fa" dir="rtl">
       <body>
         <div className="min-h-screen bg-gray-50">
           <Header />
@@ -17,9 +19,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <main className="flex-1 p-6">{children}</main>
           </div>
         </div>
+        <Toaster position="top-center" />
       </body>
     </html>
   );
-};
-
-export default Layout;
+}
