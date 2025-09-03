@@ -2,9 +2,7 @@ import React from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { useApi } from '../../hooks/useApi';
 import { Order } from '../../types';
-import Layout from '../layout';
 import OrderCard from './OrderCard';
-import ProtectedRoute from './ProtectedRoute';
 
 const Dashboard: React.FC = () => {
   const { user } = useAuth();
@@ -14,22 +12,18 @@ const Dashboard: React.FC = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <ProtectedRoute>
-      <Layout>
-        <div className="space-y-6">
-          <div className="bg-white p-6 rounded-lg shadow">
-            <h2 className="text-2xl font-bold mb-4">داشبورد</h2>
-            <p>خوش آمدید، {user?.first_name} {user?.last_name}</p>
-          </div>
+    <div className="space-y-6">
+      <div className="bg-white p-6 rounded-lg shadow">
+        <h2 className="text-2xl font-bold mb-4">داشبورد</h2>
+        <p>خوش آمدید، {user?.first_name} {user?.last_name}</p>
+      </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {orders?.map((order) => (
-              <OrderCard key={order.id} order={order} />
-            ))}
-          </div>
-        </div>
-      </Layout>
-    </ProtectedRoute>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {orders?.map((order) => (
+          <OrderCard key={order.id} order={order} />
+        ))}
+      </div>
+    </div>
   );
 };
 
