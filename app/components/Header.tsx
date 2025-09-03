@@ -1,22 +1,38 @@
 "use client";
+
 import React from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { LogOut, User } from 'lucide-react';
 import Image from "next/image";
 
 const Header: React.FC = () => {
-  const { user, logout } = useAuth();
+  const { user, logout, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <header className="bg-white shadow-sm border-b">
+        <div className="flex items-center justify-between px-6 py-4">
+          <div className="animate-pulse bg-gray-200 h-10 w-10 rounded"></div>
+          <div className="animate-pulse bg-gray-200 h-6 w-40 rounded"></div>
+          <div className="flex items-center space-x-4">
+            <div className="animate-pulse bg-gray-200 h-6 w-24 rounded"></div>
+            <div className="animate-pulse bg-gray-200 h-6 w-16 rounded"></div>
+          </div>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header className="bg-white shadow-sm border-b">
       <div className="flex items-center justify-between px-6 py-4">
         <Image
-                src="/images/01.png"
-                alt="Logo"
-                width={40}
-                height={40}
-                className="inline mb-2"
-              />
+          src="/images/01.png"
+          alt="Logo"
+          width={40}
+          height={40}
+          className="inline mb-2"
+        />
         <h1 className="text-xl font-semibold text-gray-900">
           سامانه مدیریت مصوبات
         </h1>

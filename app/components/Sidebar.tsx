@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { 
   LayoutDashboard, 
   FileText, 
@@ -17,8 +17,26 @@ import { useAuth } from '../../hooks/useAuth';
 
 const Sidebar: React.FC = () => {
   const pathname = usePathname();
-  const router = useRouter(); 
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <aside className="w-64 bg-white shadow-lg border-l">
+        <div className="p-4 border-b">
+          <div className="animate-pulse bg-gray-200 h-6 w-24 rounded"></div>
+        </div>
+        <nav className="p-4">
+          <ul className="space-y-2">
+            {[1, 2, 3, 4].map((i) => (
+              <li key={i}>
+                <div className="animate-pulse bg-gray-200 h-10 rounded-lg"></div>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </aside>
+    );
+  }
 
   const menuItems = [
     {

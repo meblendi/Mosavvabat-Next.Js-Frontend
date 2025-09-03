@@ -7,30 +7,30 @@ import api from '../lib/axios';
 export const useAuth = () => {
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [authChecked, setAuthChecked] = useState(false);
 
   useEffect(() => {
-    checkAuth();
-  }, []);
-
-  const checkAuth = async () => {
+    // Only run on client side
     if (typeof window === 'undefined') {
       setLoading(false);
       return;
     }
 
-    if (isAuthenticated()) {
-      try {
+    checkAuth();
+  }, []);
+
+  const checkAuth = async () => {
+    try {
+      if (isAuthenticated()) {
         const response = await api.get('/auth/users/me/');
         setUser(response.data);
-      } catch (error) {
-        console.error('Auth check failed:', error);
-        removeAuthTokens();
-        setUser(null);
       }
+    } catch (error) {
+      console.error('Auth check failed:', error);
+      removeAuthTokens();
+      setUser(null);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
-    setAuthChecked(true);
   };
 
   const login = async (credentials: { username: string; password: string }) => {
@@ -68,7 +68,6 @@ export const useAuth = () => {
     loading, 
     login, 
     logout, 
-    isAuthenticated: isAuthenticated(),
-    authChecked 
+    isAuthenticated: isAuthenticated()
   };
 };
