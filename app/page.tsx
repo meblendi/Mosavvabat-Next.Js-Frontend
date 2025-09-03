@@ -2,10 +2,18 @@
 
 import { useAuth } from '../hooks/useAuth';
 import Login from './components/login';
-import Dashboard from './components/dashboard';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function HomePage() {
   const { isAuthenticated, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && isAuthenticated) {
+      router.push('/dashboard');
+    }
+  }, [isAuthenticated, loading, router]);
 
   if (loading) {
     return (
@@ -15,5 +23,5 @@ export default function HomePage() {
     );
   }
 
-  return isAuthenticated ? <Dashboard /> : <Login />;
+  return !isAuthenticated ? <Login /> : null;
 }
