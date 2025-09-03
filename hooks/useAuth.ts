@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { isAuthenticated, removeAuthTokens, getAccessToken } from '../lib/auth';
+import { isAuthenticated, removeAuthTokens } from '../lib/auth';
 import api from '../lib/axios';
 
 export const useAuth = () => {
@@ -14,6 +14,11 @@ export const useAuth = () => {
   }, []);
 
   const checkAuth = async () => {
+    if (typeof window === 'undefined') {
+      setLoading(false);
+      return;
+    }
+
     if (isAuthenticated()) {
       try {
         const response = await api.get('/auth/users/me/');
@@ -48,7 +53,6 @@ export const useAuth = () => {
       return { 
         success: false, 
         error: error.response?.data?.detail || 
-               error.response?.data?.message || 
                'Login failed. Please check your credentials.' 
       };
     }
@@ -57,8 +61,6 @@ export const useAuth = () => {
   const logout = () => {
     removeAuthTokens();
     setUser(null);
-    // Optional: Call backend logout endpoint if needed
-    // api.post('/auth/logout/');
   };
 
   return { 
