@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation'; // Changed from next/router
 import { useAuth } from '../../hooks/useAuth';
 import { toast } from 'react-hot-toast';
 

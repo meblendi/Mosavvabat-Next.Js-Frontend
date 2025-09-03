@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { 
   LayoutDashboard, 
   FileText, 
@@ -17,6 +17,7 @@ import { useAuth } from '../../hooks/useAuth';
 
 const Sidebar: React.FC = () => {
   const pathname = usePathname();
+  const router = useRouter(); 
   const { user } = useAuth();
 
   const menuItems = [
