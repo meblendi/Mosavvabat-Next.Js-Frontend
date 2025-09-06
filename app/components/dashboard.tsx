@@ -8,7 +8,7 @@ const Dashboard: React.FC = () => {
   const { user } = useAuth();
   const { data: orders, loading, error } = useApi<Order[]>('/mosavvabat/orders/');
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className='flex justify-center'>... Dashboard is Loading </div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
