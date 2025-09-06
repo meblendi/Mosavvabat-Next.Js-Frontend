@@ -40,7 +40,7 @@ const Header: React.FC = () => {
           </h1>
           <Link
             href="/login"
-            className="text-sm text-primary-600 hover:text-primary-700"
+            className="text-sm text-cyan-500 font-bold hover:text-cyan-400"
           >
             ورود
           </Link>

@@ -38,7 +38,7 @@ export default function HomePage() {
           <div className="space-y-4">
             <a
               href="/login"
-              className="w-full bg-primary-600 text-slate-900 py-2 px-4 rounded-md hover:bg-primary-700 transition-colors block"
+              className="w-full bg-cyan-300 text-slate-800 font-bold py-2 px-4 rounded-md hover:bg-cyan-400 hover:text-slate-100 transition-colors block"
             >
               ورود به سامانه
             </a>
