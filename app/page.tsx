@@ -34,7 +34,7 @@ export default function HomePage() {
           <h1 className="text-xl font-bold text-gray-900">
             به سامانه مدیریت مصوبات خوش آمدید
           </h1>
-          <p className="text-gray-600 text-sm">لطفا جهت بهره‌مندی از سامانه ابتدا وارد شوید</p>
+          <p className="text-gray-600 text-sm">لطفا جهت بهره‌مندی از خدمات سامانه ابتدا وارد شوید</p>
 
           {!isAuthenticated && (
             <div className="space-y-4 flex justify-center">
