@@ -21,6 +21,7 @@ export interface UserProfile {
   signature: string;
   can_approve: boolean;
   approval_limit: number;
+  organization_logo?: string;
 }
 
 export interface Organization {
@@ -31,6 +32,8 @@ export interface Organization {
   parent: number | null;
   created: string;
   updated: string;
+  logo?: string;  
+  logo_url?: string;  
 }
 
 export interface Stage {
