@@ -35,10 +35,10 @@ export default function HomePage() {
         <p className="text-gray-600">به سامانه مدیریت مصوبات خوش آمدید</p>
         
         {!isAuthenticated && (
-          <div className="space-y-4">
+          <div className="space-y-4 flex justify-center">
             <a
               href="/login"
-              className="w-full bg-cyan-300 text-slate-800 font-bold py-2 px-4 rounded-md hover:bg-cyan-400 hover:text-slate-100 transition-colors block"
+              className="w-2/3 bg-cyan-300 text-slate-800 font-bold py-2 px-4 rounded-md hover:bg-cyan-400 hover:text-slate-100 transition-colors block"
             >
               ورود به سامانه
             </a>
