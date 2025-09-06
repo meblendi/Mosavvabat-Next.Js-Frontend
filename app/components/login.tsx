@@ -6,7 +6,7 @@ import { toast } from 'react-hot-toast';
 const Login: React.FC = () => {
   const [credentials, setCredentials] = useState({ username: '', password: '' });
   const [loading, setLoading] = useState(false);
-  const { login, isAuthenticated } = useAuth(); // Add refreshAuth
+  const { login, isAuthenticated } = useAuth();
   const router = useRouter();
 
   React.useEffect(() => {
@@ -23,9 +23,8 @@ const Login: React.FC = () => {
     
     if (result.success) {
       toast.success('خوش آمدید!');
-      // Refresh auth state to trigger re-renders
-      window.location.reload();
-      router.push('/dashboard');
+      // Force full page refresh to update all components
+      window.location.href = '/dashboard'; // This will redirect and refresh
     } else {
       toast.error(result.error);
     }
