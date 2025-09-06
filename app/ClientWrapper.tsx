@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
-import { usePathname, useRouter } from 'next/navigation';
 
 interface ClientWrapperProps {
   children: React.ReactNode;
@@ -10,26 +9,13 @@ interface ClientWrapperProps {
 
 export default function ClientWrapper({ children }: ClientWrapperProps) {
   const [isClient, setIsClient] = useState(false);
-  const { isAuthenticated, loading } = useAuth();
-  const pathname = usePathname();
-  const router = useRouter();
+  const { loading } = useAuth();
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  useEffect(() => {
-    if (!loading && isClient) {
-      // Redirect logic
-      if (isAuthenticated && pathname === '/') {
-        router.push('/dashboard');
-      } else if (!isAuthenticated && pathname !== '/') {
-        router.push('/');
-      }
-    }
-  }, [isAuthenticated, loading, pathname, isClient, router]);
-
-  // Show loading state until we know if user is authenticated
+  // Show loading state until we're on client side
   if (!isClient || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -38,11 +24,5 @@ export default function ClientWrapper({ children }: ClientWrapperProps) {
     );
   }
 
-  // Don't show layout on login page for non-authenticated users
-  if (!isAuthenticated && pathname === '/') {
-    return <>{children}</>;
-  }
-
-  // Show layout for authenticated users or other pages
   return <>{children}</>;
 }
