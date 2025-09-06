@@ -30,11 +30,11 @@ export default function HomePage() {
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md text-center">
-          <h1 className="text-3xl font-bold text-gray-900">
-            سامانه مدیریت مصوبات
+        <div className="max-w-md w-full space-y-10 p-10 bg-white rounded-lg shadow-md text-center">
+          <h1 className="text-xl font-bold text-gray-900">
+            به سامانه مدیریت مصوبات خوش آمدید
           </h1>
-          <p className="text-gray-600">به سامانه مدیریت مصوبات خوش آمدید</p>
+          <p className="text-gray-600 text-sm">لطفا جهت بهره‌مندی از سامانه ابتدا وارد شوید</p>
 
           {!isAuthenticated && (
             <div className="space-y-4 flex justify-center">
