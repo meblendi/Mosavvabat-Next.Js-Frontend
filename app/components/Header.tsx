@@ -34,7 +34,7 @@ const Header: React.FC = () => {
 
   if (!isAuthenticated) {
     return (
-      <header className="bg-white shadow-sm border-b">
+      <header className="bg-slate-100 shadow-sm">
         <div className="flex items-center justify-between px-6 py-4">
           <Image
             src="/images/01.png"
@@ -58,7 +58,7 @@ const Header: React.FC = () => {
   }
 
   return (
-    <header className="bg-white shadow-sm border-b">
+    <header className="bg-slate-100 shadow-sm">
       <div className="flex items-center justify-between px-6 py-4">
         <Image
           src="/images/01.png"
