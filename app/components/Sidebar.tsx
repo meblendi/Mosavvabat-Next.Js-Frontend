@@ -22,7 +22,7 @@ const Sidebar: React.FC = () => {
 
   if (loading) {
     return (
-      <aside className="w-64 bg-white shadow-lg border-l">
+      <aside className="w-64 bg-slate-100 shadow-lg">
         <div className="p-4 border-b">
           <div className="animate-pulse bg-gray-200 h-6 w-24 rounded"></div>
         </div>
@@ -87,12 +87,12 @@ const Sidebar: React.FC = () => {
   const isActive = (href: string) => pathname === href;
 
   return (
-    <aside className="w-64 bg-white shadow-lg border-l">
-      <div className="p-4 border-b">
+    <aside className="w-64 bg-gray-100">
+      <div className="p-4">
         <h2 className="text-lg font-semibold text-gray-800">منو</h2>
       </div>
       
-      <nav className="p-4">
+      <nav className="p-4 border-t border-b">
         <ul className="space-y-2">
           {menuItems.map((item) => {
             if (item.show === false) return null;
@@ -120,8 +120,8 @@ const Sidebar: React.FC = () => {
                             href={subItem.href}
                             className={`block py-2 px-3 rounded-lg text-sm transition-colors ${
                               isActive(subItem.href)
-                                ? 'bg-primary-100 text-primary-700 font-medium'
-                                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                                ? 'bg-slate-200 text-cyan-600 font-medium'
+                                : 'text-gray-600 hover:text-gray-900 hover:bg-slate-200'
                             }`}
                           >
                             {subItem.name}
@@ -135,8 +135,8 @@ const Sidebar: React.FC = () => {
                     href={item.href}
                     className={`flex items-center space-x-3 p-2 rounded-lg transition-colors ${
                       isActive(item.href)
-                        ? 'bg-primary-100 text-primary-700 font-medium'
-                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                        ? 'bg-slate-200 text-cyan-600 font-medium'
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-slate-200'
                     }`}
                   >
                     <Icon className="w-5 h-5" />
@@ -150,12 +150,12 @@ const Sidebar: React.FC = () => {
       </nav>
 
       {/* Quick Actions */}
-      <div className="p-4 border-t">
+      <div className="p-4">
         <h3 className="text-sm font-medium text-gray-700 mb-3">اقدامات سریع</h3>
         <div className="space-y-2">
           <Link
             href="/orders/create"
-            className="flex items-center space-x-2 p-2 bg-primary-50 text-primary-700 rounded-lg hover:bg-primary-100 transition-colors"
+            className="flex items-center space-x-2 p-2 bg-primary-50 text-cyan-600 rounded-lg hover:bg-slate-200 transition-colors"
           >
             <PlusCircle className="w-4 h-4" />
             <span className="text-sm font-medium">دستور جدید</span>
@@ -163,7 +163,7 @@ const Sidebar: React.FC = () => {
           
           <Link
             href="/orders"
-            className="flex items-center space-x-2 p-2 bg-gray-50 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
+            className="flex items-center space-x-2 p-2 bg-cyan-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
           >
             <List className="w-4 h-4" />
             <span className="text-sm font-medium">مشاهده همه</span>
