@@ -155,7 +155,7 @@ const Sidebar: React.FC = () => {
         <div className="space-y-2">
           <Link
             href="/orders/create"
-            className="flex items-center space-x-2 p-2 bg-primary-50 text-cyan-600 rounded-lg hover:bg-slate-200 transition-colors"
+            className="flex items-center space-x-2 p-2 bg-cyan-100 text-gray-700 rounded-lg hover:bg-slate-200 transition-colors"
           >
             <PlusCircle className="w-4 h-4" />
             <span className="text-sm font-medium">دستور جدید</span>
@@ -163,7 +163,7 @@ const Sidebar: React.FC = () => {
           
           <Link
             href="/orders"
-            className="flex items-center space-x-2 p-2 bg-cyan-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+            className="flex items-center space-x-2 p-2 bg-cyan-100 text-gray-700 rounded-lg hover:bg-slate-200 transition-colors"
           >
             <List className="w-4 h-4" />
             <span className="text-sm font-medium">مشاهده همه</span>
