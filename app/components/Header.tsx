@@ -4,9 +4,10 @@ import React from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { LogOut, User } from 'lucide-react';
 import Image from "next/image";
+import Link from 'next/link';
 
 const Header: React.FC = () => {
-  const { user, logout, loading } = useAuth();
+  const { user, logout, loading, isAuthenticated } = useAuth();
 
   if (loading) {
     return (
@@ -18,6 +19,31 @@ const Header: React.FC = () => {
             <div className="animate-pulse bg-gray-200 h-6 w-24 rounded"></div>
             <div className="animate-pulse bg-gray-200 h-6 w-16 rounded"></div>
           </div>
+        </div>
+      </header>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <header className="bg-white shadow-sm border-b">
+        <div className="flex items-center justify-between px-6 py-4">
+          <Image
+            src="/images/01.png"
+            alt="Logo"
+            width={40}
+            height={40}
+            className="inline mb-2"
+          />
+          <h1 className="text-xl font-semibold text-gray-900">
+            سامانه مدیریت مصوبات
+          </h1>
+          <Link
+            href="/login"
+            className="text-sm text-primary-600 hover:text-primary-700"
+          >
+            ورود
+          </Link>
         </div>
       </header>
     );
