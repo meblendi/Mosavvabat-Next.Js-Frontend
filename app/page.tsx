@@ -14,8 +14,7 @@ export default function HomePage() {
       if (isAuthenticated) {
         router.push('/dashboard');
       } else {
-        // Stay on home page, don't redirect to login
-        // The login link will be available in the UI
+        router.push('/');
       }
     }
   }, [isAuthenticated, loading, router]);
@@ -26,6 +25,10 @@ export default function HomePage() {
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
       </div>
     );
+  }
+
+  if (!isAuthenticated) {
+    return null; // Will redirect via useEffect
   }
 
   return (

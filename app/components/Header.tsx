@@ -5,9 +5,17 @@ import { useAuth } from '../../hooks/useAuth';
 import { LogOut, User } from 'lucide-react';
 import Image from "next/image";
 import Link from 'next/link';
+import { useRouter } from 'next/navigation'; // Add router
 
 const Header: React.FC = () => {
   const { user, logout, loading, isAuthenticated } = useAuth();
+  const router = useRouter(); // Initialize router
+
+  const handleLogout = () => {
+    logout();
+    // Redirect to home page after logout
+    router.push('/');
+  };
 
   if (loading) {
     return (
@@ -72,7 +80,7 @@ const Header: React.FC = () => {
           </div>
           
           <button
-            onClick={logout}
+            onClick={handleLogout} // Use the new logout handler
             className="flex items-center space-x-2 text-sm text-red-600 hover:text-red-700"
           >
             <LogOut className="w-4 h-4" />
